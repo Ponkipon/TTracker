@@ -22,7 +22,15 @@ class User(db.Model, UserMixin):
 class Timer(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     start_time = db.Column(db.DateTime, nullable=False, default=datetime.now(timezone.utc))
-    end_time = db.Column(db.DateTime, nullable=False)
-    duration = db.Column(db.Integer, nullable=False)
+    end_time = db.Column(db.DateTime, nullable=True)
+    duration = db.Column(db.Integer, nullable=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    
+    def calculate_duration(self):
+        if self.start_time and self.end_time:
+            self.start_time = self.start_time.replace(tzinfo=timezone.utc)
+            self.end_time = self.end_time.replace(tzinfo=timezone.utc)
+
+            return (self.end_time - self.start_time).total_seconds()
+        return None
 

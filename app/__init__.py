@@ -27,7 +27,9 @@ def create_app():
 
     from app.routes.routes import auth
     app.register_blueprint(auth, url_prefix='/')
-
+    from app.routes.timer import timer_bp
+    app.register_blueprint(timer_bp, url_prefix='/timer')
+    
     @loginManager.user_loader
     def load_user(user_id):
         return User.query.get(int(user_id))

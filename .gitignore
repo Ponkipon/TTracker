@@ -1,0 +1,33 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Flask specific
+instance/
+*.log
+
+# Environment variables
+.env
+*.env
+
+# Virtual environment
+venv/
+.venv/
+
+# Database files
+*.db
+*.sqlite3
+
+# Pytest cache
+.pytest_cache/
+
+# IDE specific
+.vscode/
+.idea/
+
+# MacOS specific
+.DS_Store
+
+# System files
+Thumbs.db
