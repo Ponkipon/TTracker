@@ -42,7 +42,7 @@ def view_timers():
     if not user_id:
         return jsonify({'message': 'Unauthorized'}), 401
     
-    timers = Timer.query.filter_by(user_id=user_id)
+    timers = Timer.query.filter_by(user_id=user_id).all()
     timer_list = [
         {
             'id': t.id,

@@ -29,12 +29,11 @@ def create_app():
     app.register_blueprint(auth, url_prefix='/')
     from app.routes.timer import timer_bp
     app.register_blueprint(timer_bp, url_prefix='/timer')
+    from app.routes.admin import admin
+    app.register_blueprint(admin, url_prefix='/admin')
     
     @loginManager.user_loader
     def load_user(user_id):
         return User.query.get(int(user_id))
-    
-    # from app.routes.auth import auth_bp
-    # app.register_blueprint(auth_bp)
     
     return app
