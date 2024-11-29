@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 {% block title %}Admin{% endblock title %}
 {% block content %}
+<link rel="stylesheet" href="{{url_for('static', filename="admin.css")}}">
 <h1>Admin Panel</h1>
-
+<a class="button" href="/admin/manage-users">Manage Users</a>
 <table id="admin-table">
     <thead>
         <tr>
@@ -20,5 +21,5 @@
     </tbody>
 </table>
 
-<script src="{{ url_for('static', filename="admin.js") }}"></script>
+<script type="module" src="{{ url_for('static', filename="admin.js") }}"></script>
 {% endblock content %}

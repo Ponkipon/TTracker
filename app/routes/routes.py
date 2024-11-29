@@ -1,12 +1,10 @@
-from flask import Blueprint, redirect, url_for
-from app.decorators import login_required_redirect
+from flask import Blueprint, render_template
 
 auth = Blueprint('auth', __name__)
 
 @auth.route('/', methods=['GET'])
-@login_required_redirect
-def send_to_dashboard():
-    return redirect(url_for('auth.dashboard'))
+def send_to_startpage():
+    return render_template('startpage.html')
 
 
 from app.routes import login, dashboard, logout

@@ -26,6 +26,7 @@ class Timer(db.Model):
     end_time = db.Column(db.DateTime, nullable=True)
     duration = db.Column(db.Integer, nullable=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    is_running = db.Column(db.Boolean, nullable=False, default=False)
     
     def calculate_duration(self):
         if self.start_time and self.end_time:

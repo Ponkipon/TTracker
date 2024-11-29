@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, session
+from flask import Blueprint, request, jsonify, session, render_template
 from flask_login import current_user
 from datetime import datetime, timezone
 from app import db
@@ -16,7 +16,7 @@ def start_timer():
     if running_timer:
         return jsonify({'message': 'You already have a timer running'}), 400
     
-    new_timer = Timer(user_id=user_id, start_time=datetime.now(timezone.utc))
+    new_timer = Timer(user_id=user_id, start_time=datetime.now(timezone.utc), is_running=True)
     db.session.add(new_timer)
     db.session.commit()
     return jsonify({'status': 'success','message': 'Timer Started', 'timer_id': new_timer.id}), 200
@@ -27,12 +27,13 @@ def stop_timer():
     if not user_id:
         return jsonify({'message': 'Unauthorized'}), 401
     
-    running_timer = Timer.query.filter_by(user_id=user_id, end_time=None).first()
+    running_timer = Timer.query.filter_by(user_id=user_id, end_time=None, is_running=True).first()
     if not running_timer:
         return jsonify({'message': 'No running timer found.'}), 400
     
     running_timer.end_time = datetime.now(timezone.utc)
     running_timer.duration = running_timer.calculate_duration()
+    running_timer.is_running = False
     db.session.commit()
     return jsonify({'status': 'success', 'message' : 'Timer Stopped', 'duration' : running_timer.duration}), 200
 
@@ -51,4 +52,21 @@ def view_timers():
             'duration': t.duration
         } for t in timers
     ]
-    return jsonify(timer_list), 200
+    return jsonify({'status' : 'success','timers': timer_list}), 200
+
+@timer_bp.route('/history')
+def history():
+    user_id = current_user.id
+    if not user_id:
+        return jsonify({'message': 'Unauthorized'}), 401
+    
+    return render_template('history.html')
+
+@timer_bp.route('/current_timer')
+def get_current_timer():
+    current_timer = Timer.query.filter_by(is_running=True).first()
+
+    if current_timer:
+        return jsonify({'status':'success','start_time': current_timer.start_time}), 200
+    else: 
+        return jsonify({'status':'error','message': 'You have no running Timers!'}), 200

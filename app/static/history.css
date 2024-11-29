@@ -1,0 +1,53 @@
+/* General Table Styling */
+#history-table {
+    width: 100%; /* Full width of the container */
+    border-collapse: collapse; /* Remove extra spacing between cells */
+    margin: 20px 0; /* Add spacing around the table */
+    font-size: 16px; /* Readable text size */
+    font-family: Arial, sans-serif; /* Clean font */
+    text-align: left; /* Left-align text */
+    border: 1px solid #ddd; /* Outer border */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    overflow-y: scroll;
+}
+
+/* Header Styling */
+#history-table thead th {
+    background-color: #4CAF50; /* Green header background */
+    color: white; /* White text */
+    padding: 12px 15px; /* Padding for cells */
+    text-transform: uppercase; /* Make header text uppercase */
+    border: 1px solid #ddd; /* Border between header cells */
+}
+
+/* Body Rows Styling */
+#history-table tbody tr {
+    border-bottom: 1px solid #ddd; /* Add border between rows */
+    background-color: #f9f9f9; /* Default background color for rows */
+    transition: background-color 0.2s ease; /* Smooth hover effect */
+}
+
+/* Zebra Striping */
+#history-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Slightly darker for alternate rows */
+}
+
+/* Hover Effect */
+#history-table tbody tr:hover {
+    background-color: #e9f5e9; /* Light green on hover */
+}
+
+/* Cell Styling */
+#history-table tbody td, #history-table thead th {
+    padding: 12px 15px; /* Padding inside cells */
+    border: 1px solid #ddd; /* Add border to all cells */
+    vertical-align: middle; /* Vertically center text */
+}
+
+/* Optional: Center-align specific columns */
+#history-table tbody td:nth-child(1),
+#history-table tbody td:nth-child(4),
+#history-table tbody td:nth-child(5),
+#history-table tbody td:nth-child(6) {
+    text-align: center; /* Center-align specific columns */
+}

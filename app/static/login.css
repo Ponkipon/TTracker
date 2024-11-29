@@ -1,0 +1,93 @@
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  row-gap: 14px;
+}
+
+.loginForm label {
+  border: 1px solid rgb(219, 219, 219);
+  display: flex;
+  align-items: center;
+  position: relative;
+  min-width: 268px;
+  height: 38px;
+  background: rgb(250, 250, 250);
+  border-radius: 3px;
+}
+
+.loginForm span {
+  position: absolute;
+  text-overflow: ellipsis;
+  transform-origin: left;
+  font-size: 12px;
+  left: 8px;
+  pointer-events: none;
+  transition: transform ease-out 0.1s;
+}
+
+.loginForm input {
+  width: 100%;
+  background: inherit;
+  border: 0;
+  outline: none;
+  padding: 9px 8px 7px 8px;
+  text-overflow: ellipsis;
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+.loginForm input:valid + span {
+  transform: scale(calc(10 / 12)) translateY(-10px);
+}
+
+.loginForm input:valid {
+  padding: 14px 0 2px 8px;
+  font-size: 12px;
+}
+
+.loginForm button {
+  background: #4e9caf;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 7px 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.loginForm button:hover {
+  background: #3f7b89af;
+}
+
+.loginForm button:active:not(:hover) {
+  background: #3f7b89af;
+}
+
+.contentInputs {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+}
+
+.Logo {
+  aspect-ratio: 1, 1;
+  height: 100%;
+}
+
+.logoHolder {
+  display: flex;
+  justify-content: center;
+  height: 250px;
+  top: 25px;
+}
+
+.container {
+  border-radius: 1px;
+  padding: 50px 40px 20px 40px;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  border: 1px solid rgb(219, 219, 219);
+  text-align: center;
+}

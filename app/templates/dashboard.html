@@ -2,16 +2,20 @@
 {% block title %}Dashboard{% endblock title %}
 
 {% block content %}
-    <h1>Timers</h1>
+    <link rel="stylesheet" href="{{url_for('static', filename="dashboard.css")}}">
 
-    <button id="start-timer">Start Timer</button>
+    <div class="dashboardHolder">
+        <h1>Your Dashboard</h1>
+        <p>You logged in as: {{current_user.username}}</p>
+        <p id="current-timer">Loading Timer Data...</p>
+        <p id="current-timer-duration"></p>
 
-    <button id="stop-timer">Stop Timer</button>
+        <button class="buttons" id="start-timer">Start Timer</button>
 
-    <button id="history">View History</button>
+        <button class="buttons" id="stop-timer">Stop Timer</button>
 
-    <div id="notification"></div>
-
+        <a class="buttons" href="/timer/history">View History</a>
+    </div>
     <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
 {% endblock content %}
 

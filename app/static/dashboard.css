@@ -1,0 +1,28 @@
+.dashboardHolder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboardHolder form {
+    width: 100%;
+}
+
+.buttons {
+  background: #4e9caf;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 7px 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin: 10px;
+  text-decoration: none;
+}
+
+.buttons:hover {
+    background: #305963af;
+}

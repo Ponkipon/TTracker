@@ -1,8 +1,8 @@
-from flask_login import login_required
+from app.decorators import login_required_redirect
 from flask import render_template
 from app.routes.routes import auth
 
 @auth.route('/dashboard')
-@login_required
+@login_required_redirect
 def dashboard():
     return render_template('dashboard.html')

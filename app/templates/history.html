@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}History{% endblock title %}
+
+{% block content %}
+<link rel="stylesheet" href="{{url_for('static', filename="history.css")}}">
+<h1>History</h1>
+
+<table id="history-table">
+    <thead>
+        <tr>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Duration</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+    </tbody>
+</table>
+
+<script type="module" src="{{ url_for('static', filename="history.js") }}"></script>
+{% endblock content %}

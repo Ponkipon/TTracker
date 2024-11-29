@@ -1,0 +1,73 @@
+#add-user-form {
+    padding: 20px;
+    margin: 20px auto;
+}
+
+#add-user-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+#add-user-form input[type="text"],
+#add-user-form input[type="email"],
+#add-user-form input[type="password"],
+#add-user-form button {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+#add-user-form input[type="checkbox"] {
+    margin-left: 5px;
+}
+
+#add-user-form button {
+    margin-top: 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+#add-user-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Table Styles */
+#users-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+#users-table th,
+#users-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+#users-table th {
+    background-color: #343a40;
+    color: white;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+#users-table tr:nth-child(even) {
+    background-color: #f8f8f8;
+}
+
+#users-table tr:hover {
+    background-color: #e9ecef;
+}

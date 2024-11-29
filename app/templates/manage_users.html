@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Users{% endblock title %}
+
+{% block content %}
+<link rel="stylesheet" href="{{url_for('static', filename="manage_users.css")}}">
+<h2>Add New User</h2>
+<form id="add-user-form">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+    <br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <br>
+    <label for="is_admin">Is Admin:</label>
+    <input type="checkbox" id="is_admin" name="is_admin">
+    <br>
+    <button type="submit">Add User</button>
+</form>
+
+<h2>Existing Users</h2>
+<table id="users-table">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Admin</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody id="user-list">
+        {% for user in users %}
+        <tr>
+            <td>{{ user.username }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ 'Yes' if user.is_admin else 'No' }}</td>
+            <td>
+                <form method="POST" action="{{ url_for('admin.delete_user', user_id=user.id) }}" style="display:inline;">
+                    <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<script src="{{url_for('static', filename="manage_users.js")}}"></script>
+{% endblock content %}

@@ -1,0 +1,77 @@
+/* General Table Styling */
+#admin-table {
+    width: 100%; /* Full width of the container */
+    border-collapse: collapse; /* Remove extra spacing between cells */
+    margin: 20px 0; /* Add spacing around the table */
+    font-size: 16px; /* Readable text size */
+    font-family: Arial, sans-serif; /* Clean font */
+    text-align: left; /* Left-align text */
+    border: 1px solid #ddd; /* Outer border */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    overflow-y: scroll;
+}
+
+/* Header Styling */
+#admin-table thead th {
+    background-color: #4CAF50; /* Green header background */
+    color: white; /* White text */
+    padding: 12px 15px; /* Padding for cells */
+    text-transform: uppercase; /* Make header text uppercase */
+    border: 1px solid #ddd; /* Border between header cells */
+}
+
+/* Body Rows Styling */
+#admin-table tbody tr {
+    border-bottom: 1px solid #ddd; /* Add border between rows */
+    background-color: #f9f9f9; /* Default background color for rows */
+    transition: background-color 0.2s ease; /* Smooth hover effect */
+}
+
+/* Zebra Striping */
+#admin-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Slightly darker for alternate rows */
+}
+
+/* Hover Effect */
+#admin-table tbody tr:hover {
+    background-color: #e9f5e9; /* Light green on hover */
+}
+
+/* Cell Styling */
+#admin-table tbody td, #admin-table thead th {
+    padding: 12px 15px; /* Padding inside cells */
+    border: 1px solid #ddd; /* Add border to all cells */
+    vertical-align: middle; /* Vertically center text */
+}
+
+/* Optional: Center-align specific columns */
+#admin-table tbody td:nth-child(1),
+#admin-table tbody td:nth-child(4),
+#admin-table tbody td:nth-child(5),
+#admin-table tbody td:nth-child(6) {
+    text-align: center; /* Center-align specific columns */
+}
+
+.button {
+    align-self: center;
+    margin-left: 5px;
+    margin-right: 5px;
+    display: block;
+    width: 80%;
+    height: 25px;
+    background: #4e9caf;
+    padding: 10px;
+    text-align: center;
+    border-radius: 15px;
+    color: white;
+    font-weight: bold;
+    line-height: 25px;
+    text-decoration: none;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      transition: 0.3s;
+}
+
+.button:hover {
+    background: #305963af;
+}
