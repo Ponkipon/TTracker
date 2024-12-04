@@ -1,3 +1,5 @@
+cryptography==44.0.0
+pymysql==1.1.1
 alembic==1.14.0
 Flask==3.1.0
 Flask_Bcrypt==1.0.1
@@ -6,3 +8,4 @@ Flask_Login==0.6.3
 Flask_Migrate==4.0.7
 flask_sqlalchemy==3.1.1
 SQLAlchemy==2.0.36
+gunicorn

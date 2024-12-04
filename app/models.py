@@ -10,7 +10,6 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(120), nullable=False)
     is_admin = db.Column(db.Boolean, default=False)
     timers = db.relationship('Timer', backref='user', lazy=True)
-
     def __repr__(self):
         return f'<User {self.username}>'
 
@@ -19,6 +18,7 @@ class User(db.Model, UserMixin):
     
     def set_password(self, password):
         self.password = generate_password_hash(password).decode('utf-8')
+
 
 class Timer(db.Model):
     id = db.Column(db.Integer, primary_key=True)
