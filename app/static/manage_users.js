@@ -1,36 +1,34 @@
 const form = document.getElementById('add-user-form');
 
     form.addEventListener('submit', function (event) {
-        event.preventDefault(); // Prevent default form submission
+        event.preventDefault(); 
 
-        // Collect form data
         const formData = {
             'username': document.getElementById('username').value,
             'email': document.getElementById('email').value,
             'password': document.getElementById('password').value,
-            'is_admin': document.getElementById('is_admin').checked // Boolean value for checkbox
+            'is_admin': document.getElementById('is_admin').checked 
         };
 
-        // Create a request object
         fetch('/admin/manage-users', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json' // Specify JSON data type
+                'Content-Type': 'application/json' 
             },
-            body: JSON.stringify(formData) // Send JSON data
+            body: JSON.stringify(formData) 
         })
             .then(response => {
                 if (!response.status === 'success') {
-                    throw new Error('Network response was not ok');
+                    throw new Error('Server-side error');
                 }
                 return response.json();
             })
             .then(data => {
-                alert(data.message); // Notify the user
-                form.reset(); // Clear the form
+                alert(data.message); 
+                form.reset(); 
             })
             .catch(error => {
-                console.error('There was a problem with the fetch operation:', error);
+                console.error('problem with JS on the frontend: ', error);
                 alert('Error adding user. Please try again.');
             });
     });

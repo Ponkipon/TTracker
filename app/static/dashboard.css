@@ -9,20 +9,156 @@
     width: 100%;
 }
 
-.buttons {
-  background: #4e9caf;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 14px;
-  padding: 7px 16px;
-  cursor: pointer;
-  transition: 0.3s;
-  margin: 10px;
+.dashboard-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   text-decoration: none;
 }
 
+.dashboard-buttons a {
+  text-decoration: none;
+}
+
+.buttons {
+  padding: 5px 20px;
+  padding-left: 15px;
+  border: none;
+  background-color: #4b71fb;
+  color: #eee;
+  border-radius: 7px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease-out;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 4vh;
+  height: 10vh;
+  margin: 10px;
+}
+
+button .buttons svg {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.5em;
+}
+
 .buttons:hover {
-    background: #305963af;
+    transform: translateY(-3px);
+}
+
+.fade{
+  transition: opacity 0.3s ease-in-out;
+}
+
+.hidden{
+  opacity: 0;
+}
+
+.dashboard-splash {
+  font-size: clamp(2rem, 15vw, 10rem);
+  
+  font-weight: 700;
+  text-align: left;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 2%;
+}
+
+.dashboard-info {
+ display: flex;
+ flex-direction: column;
+}
+
+.dashboard-userdata {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: left;
+  margin-top: 0;
+  margin-bottom: 3%;
+  margin-left: 8%;
+}
+
+.dashboard-timerstatus {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: left;
+  margin-bottom: 0;
+  margin-left: 12%;
+}
+
+.dashboard-timerdata {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: left;
+  margin-bottom: 0;
+  margin-left: 15%;
+}
+
+.dashboard-timerduration {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: left;
+  margin-bottom: 0;
+  margin-left: 18%;
+}
+
+.progressTextHolder {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* From Uiverse.io by Satwinder04 */ 
+.input-container {
+  position: relative;
+  margin: 50px auto;
+  width: 50vh;
+}
+
+.input-container input[type="text"] {
+  font-size: 20px;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  padding: 5px 0;
+  background-color: transparent;
+  outline: none;
+}
+
+.input-container .label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #ccc;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.input-container input[type="text"]:focus ~ .label,
+.input-container input[type="text"]:valid ~ .label {
+  top: -20px;
+  font-size: 16px;
+  color: #333;
+}
+
+.input-container .underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #333;
+  transform: scaleX(0);
+  transition: all 0.3s ease;
+}
+
+.input-container input[type="text"]:focus ~ .underline,
+.input-container input[type="text"]:valid ~ .underline {
+  transform: scaleX(1);
 }

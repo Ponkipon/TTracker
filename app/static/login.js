@@ -15,8 +15,8 @@ function loginHandler() {
             'Content-type': 'application/json'
         },
         body: JSON.stringify({
-            'username': document.getElementById('username-form').value,
-            'password': document.getElementById('password-form').value
+            'username': document.getElementById('input-username').value,
+            'password': document.getElementById('input-password').value
         })
     })
     .then(response => response.json())

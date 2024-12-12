@@ -26,7 +26,8 @@ def get_all_timers():
         'email': t.user.email,
         'start_time': t.start_time,
         'end_time': t.end_time,
-        'duration': t.duration
+        'duration': t.duration,
+        'description': t.description
     } for t in timers]
     
     return jsonify({'status': 'success', 'timers': timer_list})

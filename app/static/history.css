@@ -1,8 +1,10 @@
 /* General Table Styling */
 #history-table {
-    width: 100%; /* Full width of the container */
+    width: 95%; /* Full width of the container */
     border-collapse: collapse; /* Remove extra spacing between cells */
-    margin: 20px 0; /* Add spacing around the table */
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
     font-size: 16px; /* Readable text size */
     font-family: Arial, sans-serif; /* Clean font */
     text-align: left; /* Left-align text */

@@ -1,14 +1,18 @@
 /* General Table Styling */
 #admin-table {
-    width: 100%; /* Full width of the container */
+    width: 95%; /* Full width of the container */
     border-collapse: collapse; /* Remove extra spacing between cells */
-    margin: 20px 0; /* Add spacing around the table */
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
     font-size: 16px; /* Readable text size */
     font-family: Arial, sans-serif; /* Clean font */
     text-align: left; /* Left-align text */
     border: 1px solid #ddd; /* Outer border */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    table-layout: fixed;
     overflow-y: scroll;
+
 }
 
 /* Header Styling */
@@ -41,7 +45,10 @@
 #admin-table tbody td, #admin-table thead th {
     padding: 12px 15px; /* Padding inside cells */
     border: 1px solid #ddd; /* Add border to all cells */
-    vertical-align: middle; /* Vertically center text */
+    vertical-align: middle; /* Vertically center text */    
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 0;
 }
 
 /* Optional: Center-align specific columns */
@@ -74,4 +81,23 @@
 
 .button:hover {
     background: #305963af;
+}
+
+.description-content {
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-top: none;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.description-toggle {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.details-row td {
+    text-align: left;
 }

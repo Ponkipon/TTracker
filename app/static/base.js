@@ -33,18 +33,20 @@ export function getDate(date){
 // shamelessly copied function from chatgpt to calculate duration with dynamic formatting
 export function getDuration(startdate, enddate) {
     const timerStartTime = new Date(startdate);
-    const currentTime = new Date(enddate);
+    var currentTime;
+    if (enddate){
+        currentTime = new Date(enddate);
+    }else {
+        currentTime = new Date();
+    }
 
-    // Get the difference in milliseconds
     const durationMs = currentTime.getTime() - timerStartTime.getTime();
 
-    // Calculate precise components
     const totalMinutes = Math.floor(durationMs / (1000 * 60));
     const minutes = totalMinutes % 60;
     const totalHours = Math.floor(totalMinutes / 60) % 24;
     const days = Math.floor(totalMinutes / (60 * 24));
 
-    // Build the result string dynamically
     let result = [];
     if (days > 0) result.push(`${days} ${days === 1 ? "day" : "days"}`);
     if (totalHours > 0 || days > 0) result.push(`${totalHours} ${totalHours === 1 ? "hour" : "hours"}`);

@@ -11,13 +11,19 @@
             <th>Start Time</th>
             <th>End Time</th>
             <th>Duration</th>
+            <th>Description</th>
         </tr>
     </thead>
 
     <tbody>
 
     </tbody>
-</table>
 
+</table>
+<div id="pagination-controls">
+    <button id="prev-page" disabled>Previous</button>
+    <span id="current-page">Page 1</span>
+    <button id="next-page">Next</button>
+</div>
 <script type="module" src="{{ url_for('static', filename="history.js") }}"></script>
 {% endblock content %}
