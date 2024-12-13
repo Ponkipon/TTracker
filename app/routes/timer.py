@@ -48,7 +48,7 @@ def view_timers():
         return jsonify({'message': 'Unauthorized'}), 401
     
     page = int(request.args.get('page', 1))
-    limit = int(request.args.get('limit', 10))
+    limit = int(request.args.get('limit', 15))
     offset = (page-1) * limit
     
     timers_query = Timer.query.filter_by(user_id=user_id).offset(offset).limit(limit).all()

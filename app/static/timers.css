@@ -1,12 +1,13 @@
 .table-holder {
-    overflow: auto;
-    max-height: 82%;
+  overflow: auto;
+  max-height: 77%;
+  margin-bottom: 15px;
 }
 /* General Table Styling */
-#history-table {
-  width: 95%; 
+#admin-table {
+  width: 95%; /* Full width of the container */
   border-collapse: collapse; /* Remove extra spacing between cells */
-  margin-top: 0px;
+  margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
   font-size: 16px; /* Readable text size */
@@ -14,13 +15,13 @@
   text-align: left; /* Left-align text */
   border: 1px solid #ddd; /* Outer border */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  margin-bottom: 20px;
-  transition: all 0.3s ease-in-out;
+  table-layout: fixed;
+  overflow-y: scroll;
 }
 
 /* Header Styling */
-#history-table thead th {
-  background-color: #4b71fb;
+#admin-table thead th {
+  background-color: #4b71fb; /* Green header background */
   color: white; /* White text */
   padding: 12px 15px; /* Padding for cells */
   text-transform: uppercase; /* Make header text uppercase */
@@ -30,47 +31,52 @@
 }
 
 /* Body Rows Styling */
-#history-table tbody tr {
+#admin-table tbody tr {
   border-bottom: 1px solid #ddd; /* Add border between rows */
   background-color: #f9f9f9; /* Default background color for rows */
   transition: background-color 0.2s ease; /* Smooth hover effect */
 }
 
 /* Zebra Striping */
-#history-table tbody tr:nth-child(even) {
+#admin-table tbody tr:nth-child(even) {
   background-color: #f2f2f2; /* Slightly darker for alternate rows */
 }
 
 /* Hover Effect */
-#history-table tbody tr:hover {
+#admin-table tbody tr:hover {
   background-color: #e9f5e9; /* Light green on hover */
 }
 
 /* Cell Styling */
-#history-table tbody td,
-#history-table thead th {
+#admin-table tbody td,
+#admin-table thead th {
   padding: 12px 15px; /* Padding inside cells */
   border: 1px solid #ddd; /* Add border to all cells */
   vertical-align: middle; /* Vertically center text */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* Optional: Center-align specific columns */
-#history-table tbody td:nth-child(1),
-#history-table tbody td:nth-child(2),
-#history-table tbody td:nth-child(3),
-#history-table tbody td:nth-child(4) {
+#admin-table tbody td {
   text-align: center; /* Center-align specific columns */
   word-wrap: break-word;
   overflow-wrap: break-word;
-  max-width: 0;
 }
 
-#history-table tbody td:nth-child(4) button {
+.first-column {
+  width: 65px;
+}
+
+.last-column {
+  width: 110px;
+}
+
+#admin-table button {
   margin: auto;
 }
 
 .description-toggle {
-  padding: 5px 20px;
   border: none;
   background-color: #4b71fb;
   color: #eee;
@@ -88,8 +94,8 @@
 
 #prev-page,
 #next-page {
-    padding-top: 4px;
-    height: 2.5vh;
+  padding-top: 4px;
+  height: 2.5vh;
   width: 40px;
   border: none;
   background-color: #4b71fb;
@@ -99,32 +105,4 @@
   transition: all 0.25s ease-out;
   margin-left: 10px;
   margin-right: 10px;
-}
-
-#prev-page:hover,
-#next-page:hover {
-  transform: translateY(-3px);
-}
-
-.details-row {
-  display: none;
-  height: 0;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: all 0.3s ease-in-out;
-}
-
-.details-row.show {
-  display: table-row;
-  height: auto;
-  opacity: 1;
-  transform: translateY(1);
-}
-
-.description-content {
-  padding: 10px;
-  background-color: #f9f9f9;
-  white-space: normal;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
 }

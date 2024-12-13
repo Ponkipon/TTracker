@@ -4,26 +4,32 @@
 {% block content %}
 <link rel="stylesheet" href="{{url_for('static', filename="history.css")}}">
 <h1>History</h1>
+<div class="table-holder">
+    <table id="history-table">
+        <thead>
+            <tr>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Duration</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+    
+        <tbody>
+    
+        </tbody>
+    
+    </table>
 
-<table id="history-table">
-    <thead>
-        <tr>
-            <th>Start Time</th>
-            <th>End Time</th>
-            <th>Duration</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-
-    <tbody>
-
-    </tbody>
-
-</table>
+</div>
 <div id="pagination-controls">
-    <button id="prev-page" disabled>Previous</button>
+    <button id="prev-page" disabled>
+        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 -960 960 960" width="1em" fill="#000000"><path d="M640-80 240-480l400-400 71 71-329 329 329 329-71 71Z"/></svg>
+    </button>
     <span id="current-page">Page 1</span>
-    <button id="next-page">Next</button>
+    <button id="next-page">
+        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 -960 960 960" width="1em" fill="#000000"><path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"/></svg>
+    </button>
 </div>
 <script type="module" src="{{ url_for('static', filename="history.js") }}"></script>
 {% endblock content %}

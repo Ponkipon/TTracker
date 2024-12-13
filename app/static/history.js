@@ -3,6 +3,7 @@ import { getDuration } from "./base.js";
 let currentPage = 1;
 const limit = 15;
 
+
 function loadHistory(page = 1, limit = 15) {
     fetch(`/timer/view_timers?page=${page}&limit=${limit}`)
         .then(response => response.json())
@@ -16,7 +17,7 @@ function loadHistory(page = 1, limit = 15) {
                     <td>${getDuration(timer.start_time, timer.end_time ? timer.end_time : '') || ''}</td>
                     <td><button class="description-toggle">Show Description</button></td>
                 </tr>
-                <tr class="details-row" style="display: none;">
+                <tr class="details-row" >
                     <td colspan="4">
                         <div class="description-content">
                             ${timer.description || 'No description.'}
@@ -34,7 +35,10 @@ document.querySelector('#history-table tbody').addEventListener('click', functio
     if (e.target.classList.contains('description-toggle')) {
         const detailsRow = e.target.closest('tr').nextElementSibling;
         if (detailsRow && detailsRow.classList.contains('details-row')) {
-            detailsRow.style.display = detailsRow.style.display === 'none' ? 'table-row' : 'none';
+            detailsRow.classList.toggle('show');
+            if (detailsRow.classList.contains('show')) {
+                detailsRow.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
         }
     }
 });

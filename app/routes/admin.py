@@ -12,14 +12,38 @@ admin = Blueprint('admin', __name__)
 def admin_page():
     return render_template('admin.html')
 
-@admin.route('/timers', methods=['GET'])
+@admin.route('/get_timers', methods=['GET'])
 @login_required_redirect
 @admin_required
 def get_all_timers():
     if not current_user.is_admin:
         return jsonify({'status': 'error', 'message': 'Unauthorized'}), 403
-        
-    timers = Timer.query.all()
+    
+    user_id = request.args.get('user_id', type=int)
+    username = request.args.get('username', type=str)
+    email = request.args.get('email', type=str)
+    start_time = request.args.get('start_time', type=str)
+    end_time = request.args.get('end_time', type=str)
+    page = int(request.args.get('page', 1))
+    limit = int(request.args.get('limit', 15))
+
+    offset = (page - 1) * limit
+
+    query = Timer.query
+
+    if user_id:
+        query = query.filter(Timer.user_id == user_id)
+    if username:
+        query = query.join(User).filter(User.username.ilike(f"%{username}%"))
+    if email:
+        query = query.join(User).filter(User.email.ilike(f"%{email}%"))
+    if start_time:
+        query = query.filter(Timer.start_time >= start_time)
+    if end_time:
+        query = query.filter(Timer.end_time <= end_time)
+
+    timers = query.offset(offset).limit(limit).all()
+    total_timers = query.count()
     timer_list = [{
         'user_id': t.user_id,
         'username': t.user.username,
@@ -30,8 +54,14 @@ def get_all_timers():
         'description': t.description
     } for t in timers]
     
-    return jsonify({'status': 'success', 'timers': timer_list})
+    return jsonify({'status' : 'success','timers': timer_list, 'total': total_timers, 'page': page, 'limit': limit}), 200
         
+@admin.route('/timers')
+@login_required_redirect
+@admin_required
+def timers():
+    return render_template('timers.html')
+
 @admin.route('/manage-users', methods=['GET', 'POST'])
 @login_required_redirect
 @admin_required
