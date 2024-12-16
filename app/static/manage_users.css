@@ -1,3 +1,8 @@
+.table-holder {
+    overflow: auto;
+    max-height: 35%;
+}
+
 #add-user-form {
     padding: 20px;
     margin: 20px auto;
@@ -39,35 +44,68 @@
     background-color: #0056b3;
 }
 
-/* Table Styles */
 #users-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-#users-table th,
-#users-table td {
-    padding: 12px;
-    text-align: left;
-    border: 1px solid #ddd;
-}
-
-#users-table th {
-    background-color: #343a40;
-    color: white;
-    font-size: 14px;
-    text-transform: uppercase;
-}
-
-#users-table tr:nth-child(even) {
-    background-color: #f8f8f8;
-}
-
-#users-table tr:hover {
-    background-color: #e9ecef;
-}
+    width: 95%; 
+    border-collapse: collapse; /* Remove extra spacing between cells */
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px; /* Readable text size */
+    font-family: Arial, sans-serif; /* Clean font */
+    text-align: left; /* Left-align text */
+    border: 1px solid #ddd; /* Outer border */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin-bottom: 20px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Header Styling */
+  #users-table thead th {
+    background-color: #4b71fb;
+    color: white; /* White text */
+    padding: 12px 15px; /* Padding for cells */
+    text-transform: uppercase; /* Make header text uppercase */
+    border: 1px solid #ddd; /* Border between header cells */
+    border-radius: 7px;
+    text-align: center;
+  }
+  
+  /* Body Rows Styling */
+  #users-table tbody tr {
+    border-bottom: 1px solid #ddd; /* Add border between rows */
+    background-color: #f9f9f9; /* Default background color for rows */
+    transition: background-color 0.2s ease; /* Smooth hover effect */
+  }
+  
+  /* Zebra Striping */
+  #users-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Slightly darker for alternate rows */
+  }
+  
+  /* Hover Effect */
+  #users-table tbody tr:hover {
+    background-color: #e9f5e9; /* Light green on hover */
+  }
+  
+  /* Cell Styling */
+  #users-table tbody td,
+  #users-table thead th {
+    padding: 12px 15px; /* Padding inside cells */
+    border: 1px solid #ddd; /* Add border to all cells */
+    vertical-align: middle; /* Vertically center text */
+  }
+  
+  /* Optional: Center-align specific columns */
+  #users-table tbody td:nth-child(1),
+  #users-table tbody td:nth-child(2),
+  #users-table tbody td:nth-child(3),
+  #users-table tbody td:nth-child(4) {
+    text-align: center; /* Center-align specific columns */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 0;
+  }
+  
+  #users-table tbody td:nth-child(4) button {
+    margin: auto;
+  }
